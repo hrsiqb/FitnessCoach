@@ -68,11 +68,11 @@ function calculateCalories(){
     if(gender === 'male') var BMRVal = eval(88.362 + (13.397 * weight) + (4.799 * heightCm) - (5.677 * age))
     else var BMRVal = 447.593 + (9.247 * weight) + (3.098 * heightCm) - (4.330 * age)
     let mCalorieVal = BMRVal * parseFloat(activityLevel)
-    let gCalorieVal = eval(mCalorieVal + 200)
+    let gCalorieVal = mCalorieVal + 200
     let lCalorieVal = mCalorieVal - 200
     let proteinVal = (weight * 2.20462)
-    let carbohydrateVal = (60 * gCalorieVal / 100)
-    let fatVal = eval(mCalorieVal - (proteinVal * 4) + (carbohydrateVal * 4))
+    let carbohydrateVal = ((60 * gCalorieVal / 100)/4)
+    let fatVal = (gCalorieVal - ((proteinVal * 4) + (carbohydrateVal * 4)))/9
     BMR.innerHTML = Math.round(BMRVal)
     mCalories.innerHTML = Math.round(mCalorieVal)
     gCalories.innerHTML = Math.round(gCalorieVal)
